@@ -1,0 +1,6 @@
+argparse
+pandas
+pathlib
+requests
+urllib3
+pyyaml

@@ -1,0 +1,41 @@
+client_config:
+  output_dir: ./output
+  logging_level: INFO # CRITICAL | ERROR | WARNING | INFO | DEBUG | NOTSET
+
+controller_config:
+  enable_experimental_features: False
+
+operations:
+  exclusion_list:
+    DEFAULT:
+      orgs:
+        coe:
+          spaces:
+            SAP:
+              allow_operations: False
+
+# The template of section operations
+#operations:
+#  exclusion_list:
+#    DEFAULT:     # The existence of list DEFAULT is mandatory
+#      orgs:
+#        your_organization_name:
+#          spaces:
+#            SAP: # Always keep space SAP in your lists to avoid unexpected operations on standard apps
+#              allow_operations: False
+#            YOUR_CUSTOM_SPACE_NAME:
+#              allow_operations: True
+#              apps:
+#                - custom-app-name-a
+#                - custom-app-name-b
+#                - custom-app-name-c
+#              service_instances:
+#                - custom-service-name-a
+#                - custom-service-name-b
+#                - custom-service-name-c
+
+#monitoring_config:
+#  controller_config_has_priority: True
+#  mid_term_seconds: 300
+#  short_term_seconds: 3600
+#  long_term_seconds: 86400
