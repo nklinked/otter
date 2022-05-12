@@ -12,6 +12,44 @@ The main objectives of the development are:
 * To simplify some chosen routine operations, e.g., deletion of the post-mortem (STOPPED and CRASHED) application instances
 * To provide reusable modules that can be used in the automation tasks
 
+- [Important Notes](#important-notes)
+- [Deployment](#deployment)
+  - [Environment requirements](#environment-requirements)
+  - [Packaging](#packaging)
+  - [Target System Requirements](#target-system-requirements)
+- [Usage](#usage)
+  - [Client Configuration](#client-configuration)
+    - [Section `client_config`](#section-client_config)
+    - [Section `controller_config`](#section-controller_config)
+    - [Section `operations`](#section-operations)
+  - [General syntax](#general-syntax)
+  - [Required connection arguments](#required-connection-arguments)
+      - [Argument `-a, --api-endpoint <API_ENDPOINT>`](#argument--a---api-endpoint-api_endpoint)
+      - [Argument `-u, --username <USER>`](#argument--u---username-user)
+      - [Argument `-p, --password <PASSWORD>`](#argument--p---password-password)
+      - [Argument `-o, --organization <ORGANIZATION>`](#argument--o---organization-organization)
+      - [Example usage of required arguments:](#example-usage-of-required-arguments)
+  - [Optional selective arguments](#optional-selective-arguments)
+      - [Argument  `-s, --space <SPACE>`](#argument---s---space-space)
+      - [Argument `-app, --application <APPLICATION>`](#argument--app---application-application)
+      - [Argument  `-exclist, --exclusion-list-name <EXCLUSION_LIST>`](#argument---exclist---exclusion-list-name-exclusion_list)
+  - [Operation arguments](#operation-arguments)
+      - [Argument  `-rdb`, `--report-databases`](#argument---rdb---report-databases)
+      - [Argument  `-rii`, `--report-invalid-instances`](#argument---rii---report-invalid-instances)
+      - [Argument `-rora`, `--report-org-roles-assignment`](#argument--rora---report-org-roles-assignment)
+      - [Argument `-rsra`, `--report-space-roles-assignment`](#argument--rsra---report-space-roles-assignment)
+      - [Argument `-rrca`, `--report-role-collections-assignment`](#argument--rrca---report-role-collections-assignment)
+      - [Argument `-rai`, `--report-application-instances`](#argument--rai---report-application-instances)
+      - [Argument `-rsi`, `--report-service-instances`](#argument--rsi---report-service-instances)
+      - [Argument `-rupsi`, `--report-user-provided-service-instances`](#argument--rupsi---report-user-provided-service-instances)
+      - [Argument `-rsk`, `--report-service-keys`](#argument--rsk---report-service-keys)
+      - [Argument `-rca`, `--report-crashing-apps`](#argument--rca---report-crashing-apps)
+      - [Argument `-rnmo`, `--report-non-mta-objects`](#argument--rnmo---report-non-mta-objects)
+      - [Argument `-rpal`, `--report-parsed-app-log`](#argument--rpal---report-parsed-app-log)
+      - [Argument `-sca`, `--stop-crashing-apps`](#argument--sca---stop-crashing-apps)
+      - [Argument `-dscai`, `--delete-stopped-crashed-app-instances`](#argument--dscai---delete-stopped-crashed-app-instances)
+      - [Argument `-dnmasi`, `--delete-non-mta-apps-and-service-instances`](#argument--dnmasi---delete-non-mta-apps-and-service-instances)
+- [Obtain Support](#obtain-support)
 
 
 ## Important Notes
@@ -109,7 +147,7 @@ operations:
 # The template of section operations
 #operations:
 #  exclusion_list:
-#    DEFAULT:     # The existence of list DEFAULT is mandatory
+#    DEFAULT:  # The existence of list DEFAULT is mandatory
 #      orgs:
 #        your_organization_name:
 #          spaces:
@@ -146,29 +184,29 @@ Please see the comments in the YAML definition below for details about the funct
 
 ```yaml
 operations:
-  exclusion_list: 	# [DO NOT CHANGE] Definition of Exclusion Lists
-    DEFAULT:					# Name of the default Exclusion List
-      orgs:							# [DO NOT CHANGE] Defintion of organizations
-        orgname:					# Name of the organization
-          spaces:						# [DO NOT CHANGE] Definition of spaces
-            SAP:							# Name of the space
+  exclusion_list:  # [DO NOT CHANGE] Definition of Exclusion Lists
+    DEFAULT:       # Name of the default Exclusion List. The existence of list DEFAULT is mandatory
+      orgs:        # [DO NOT CHANGE] Defintion of organizations
+        orgname:   # Name of the organization
+          spaces:  # [DO NOT CHANGE] Definition of spaces
+            SAP:   # Name of the space
               allow_operations: False # Are the operations generally allowed?
-    MY_CUSTOM_LIST:	# Name of another custom Exclusion List
-      orgs:						# [DO NOT CHANGE] Defintion of organizations
-        MY_ORGNAME:			# Name of my own organization
-          spaces:					# [DO NOT CHANGE] Definition of spaces
-            SAP:						# Name of the space. Always exclude space SAP from the operations!
-              allow_operations: False	# Are the operations generally allowed?
-            MY_CUSTOM_SPACE_NAME:			# Name of my own space
-              allow_operations: True		# Are the operations generally allowed?
-              apps:											# [DO NOT CHANGE] Definition of apps
-                - custom-app-name-a					# Name of my own application A
-                - custom-app-name-b					# Name of my own application B
-                - custom-app-name-c					# Name of my own application C
-              service_instances:				# [DO NOT CHANGE] Definition of service instances
-                - custom-service-name-a			# Name of my own service instance A
-                - custom-service-name-b			# Name of my own service instance B
-                - custom-service-name-c			# Name of my own service instance C
+    MY_CUSTOM_LIST: # Name of another custom Exclusion List
+      orgs:         # [DO NOT CHANGE] Defintion of organizations
+        MY_ORGNAME: # Name of my own organization
+          spaces:   # [DO NOT CHANGE] Definition of spaces
+            SAP:    # Name of the space. Always exclude space SAP from the operations!
+              allow_operations: False # Are the operations generally allowed?
+            MY_CUSTOM_SPACE_NAME:     # Name of my own space
+              allow_operations: True  # Are the operations generally allowed?
+              apps:  # [DO NOT CHANGE] Definition of apps
+                - custom-app-name-a   # Name of my own application A
+                - custom-app-name-b   # Name of my own application B
+                - custom-app-name-c   # Name of my own application C
+              service_instances:      # [DO NOT CHANGE] Definition of service instances
+                - custom-service-name-a  # Name of my own service instance A
+                - custom-service-name-b  # Name of my own service instance B
+                - custom-service-name-c  # Name of my own service instance C
 ```
 
 
