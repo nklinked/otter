@@ -12,6 +12,9 @@ The main objectives of the development are:
 * To simplify some chosen routine operations, e.g., deletion of the post-mortem (STOPPED and CRASHED) application instances
 * To provide reusable modules that can be used in the automation tasks
 
+
+
+## Table of Contents
 - [Important Notes](#important-notes)
 - [Deployment](#deployment)
   - [Environment requirements](#environment-requirements)
