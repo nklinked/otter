@@ -1,0 +1,9 @@
+[MASTER]
+ignore=README.md
+logging-format-style=new
+disable=
+    C0114, # missing-module-docstring
+    C0116, # missing-function-docstring
+    C0115, # missing-class-docstring
+    #TO_DO: learn and fix logging best practices
+    W1203, #logging-fstring-interpolation
