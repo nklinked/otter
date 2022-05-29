@@ -430,7 +430,7 @@ otter -a https://some.hostname:30033 -u some_user -p SomePassword12 -o some_org 
 
 ##### Argument `-rrca`, `--report-role-collections-assignment`
 
-Having the argument given, the information about Space roles (SpaceManager, SpaceAuditor, SpaceDeveloper) assigned to users will be collected in the CSV file.
+Having the argument given, the information about Role Collections assigned to users will be collected in the CSV file.
 
 The produced output will contain following fields: `User GUID`, `User UAA GUID`, `User Name`, `Origin`, `Is Active`, `Is Orphaned`, `Role Collection Name`.
 
